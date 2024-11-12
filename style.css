@@ -3,10 +3,11 @@
   margin: 0;
 }
 body {
-  background-color: #8ACE00;
+  background-color: #FF69B4 ;
 }
 .player {
-  background-color: #FF69B4;
+  background-color: #e7e2dd
+  ;
   width: 330px;
   height: 190px;
   position: absolute;
@@ -14,7 +15,7 @@ body {
   left: 50%;
   top: 50%;
   border-radius: 8px;
-  box-shadow: 0 8px 0 0 #FF69B1;
+  box-shadow: 0 8px 0 0 #db5998;
 }
 .record {
   height: 175px;
@@ -150,4 +151,28 @@ body {
   font-size: 100px;
   color: black;
   cursor: pointer; 
+}
+
+.horse-container {
+  width: 82px; /* Width of a single frame */
+  height: 66px; /* Height of a single frame */
+  overflow: hidden;
+  position: absolute; /* Allows positioning anywhere on the screen */
+  display: none; /* Hidden initially */
+}
+
+/* Horse sprite animation */
+.horse {
+  width: 410px; /* Total width of the full sprite sheet (82px * 5 frames) */
+  height: 66px; /* Height of the sprite sheet */
+  background: url('/mnt/data/horse_run_cycle.png') left center;
+  animation: gallop 0.5s steps(5) infinite;
+}
+
+
+/* Keyframes to animate background position */
+@keyframes gallop {
+  100% {
+      background-position: -410px; /* Move background across the width of the sprite sheet */
+  }
 }
