@@ -153,26 +153,38 @@ body {
   cursor: pointer; 
 }
 
+/* Container for each horse to control overflow */
 .horse-container {
   width: 82px; /* Width of a single frame */
   height: 66px; /* Height of a single frame */
   overflow: hidden;
-  position: absolute; /* Allows positioning anywhere on the screen */
-  display: none; /* Hidden initially */
+  position: absolute;
+  bottom: 20%; /* Position the horses on the screen */
+  animation: runAcross 5s linear infinite; /* Move across the screen */
 }
 
 /* Horse sprite animation */
 .horse {
   width: 410px; /* Total width of the full sprite sheet (82px * 5 frames) */
   height: 66px; /* Height of the sprite sheet */
-  background: url('/mnt/data/horse_run_cycle.png') left center;
+  background: url('horse_run.png') left center;
   animation: gallop 0.5s steps(5) infinite;
 }
 
-
-/* Keyframes to animate background position */
+/* Keyframes to animate background position for gallop effect */
 @keyframes gallop {
   100% {
-      background-position: -410px; /* Move background across the width of the sprite sheet */
+    background-position: -410px;
   }
 }
+
+/* Keyframes to animate the horse moving across the screen */
+@keyframes runAcross {
+  0% {
+    left: -100px; /* Start off-screen */
+  }
+  100% {
+    left: 100vw; /* Move to the other side of the screen */
+  }
+}
+
